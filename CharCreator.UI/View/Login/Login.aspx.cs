@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+using System.Configuration;
+using CharCreator.Data.Repository;
+using CharCreator.Domain.Entity;
 
 namespace CharCreator.UI.View.Login
 {
@@ -16,7 +17,21 @@ namespace CharCreator.UI.View.Login
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
+            BaseRepository<User> repo
+                 = new BaseRepository<User>();
+            
+            try
+            {
+                repo.OpenConnection();                    
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Connection Open !')", true);               
+                repo.CloseConnection();
+            }
+            catch
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Can not open connection ! ')", true);                
+                
+            }
         }
     }
 }

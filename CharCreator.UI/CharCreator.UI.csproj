@@ -247,6 +247,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CharCreator.Data\CharCreator.Data.csproj">
+      <Project>{0ce997ca-8326-450a-b52d-ef36b71c3bdc}</Project>
+      <Name>CharCreator.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CharCreator.Domain\CharCreator.Domain.csproj">
+      <Project>{68662312-fd8a-4b1b-a6ef-fe4522fe9231}</Project>
+      <Name>CharCreator.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
