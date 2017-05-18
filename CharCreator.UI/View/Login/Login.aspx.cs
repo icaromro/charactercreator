@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using CharCreator.Data.Repository;
 using CharCreator.Domain.Entity;
+using CharCreator.Domain.Service;
 
 namespace CharCreator.UI.View.Login
 {
@@ -21,17 +22,17 @@ namespace CharCreator.UI.View.Login
             BaseRepository<User> repo
                  = new BaseRepository<User>();
             
-            try
-            {
-                repo.OpenConnection();                    
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Connection Open !')", true);               
-                repo.CloseConnection();
-            }
-            catch
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Can not open connection ! ')", true);                
+            User user = new User();
+            user.login = txbLogin.Text;
+            user.password = txbPassword.Text;
+            UserService uR = new UserService();
+            UserRepository uR = new UserRepository();
+            if(uR.LogIn(user))                
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Connection Open !')", true);
+            else                
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Can not open connection ! ')", true);
                 
-            }
+            
         }
     }
 }
