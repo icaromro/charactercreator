@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using CharCreator.Domain.Entity;
-using CharCreator.Domain.Interface.Repository;
+using CharCreator.Model.Entity;
+using CharCreator.Data.Interface.Repository;
 
 namespace CharCreator.Data.Repository
 {
@@ -29,7 +29,7 @@ namespace CharCreator.Data.Repository
             throw new NotImplementedException();
         }
 
-        public bool LogIn(User user)
+        public bool LogIn(ref User user)
         {
             string sql = @"SELECT id, login, name, sex, birth_date, email, register_date FROM [user] 
                             WHERE login = @login AND password = @password";
@@ -38,10 +38,13 @@ namespace CharCreator.Data.Repository
             parametros["@password"] = user.password;
 
             DataTable dataTableUser = ObterDataTable(sql, parametros);
-            if(ExecuteQuery(sql, parametros))
+            if (dataTableUser.Rows.Count > 0)
+            {
+                user.LoadUser(dataTableUser);
                 return true;
+            }
             else
-                return false;                                   
+                return false;
         }
 
         public void Update(User obj)

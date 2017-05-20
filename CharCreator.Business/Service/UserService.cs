@@ -1,21 +1,17 @@
-﻿using System;
+﻿using CharCreator.Business.Interface.Service;
+using CharCreator.Model.Entity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CharCreator.Domain.Entity;
-using CharCreator.Domain.Interface.Repository;
-using CharCreator.Domain.Interface.Service;
+using CharCreator.Data.Repository;
 
-namespace CharCreator.Domain.Service
+namespace CharCreator.Business.Service
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly UserRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService()
         {
-            _userRepository = userRepository;
+            _userRepository = new UserRepository() ;
         }
 
         public void Add(User obj)
@@ -43,9 +39,9 @@ namespace CharCreator.Domain.Service
             return _userRepository.GetById(id);
         }
 
-        public bool LogIn(User user)
+        public bool LogIn(ref User user)
         {
-            return _userRepository.LogIn(user);
+            return _userRepository.LogIn(ref user);
         }
     }
 }

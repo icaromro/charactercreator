@@ -172,6 +172,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="View\Character\CharacterList.aspx" />
     <Content Include="View\Login\Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -226,6 +227,13 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="View\Character\CharacterList.aspx.cs">
+      <DependentUpon>CharacterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Character\CharacterList.aspx.designer.cs">
+      <DependentUpon>CharacterList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -248,13 +256,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CharCreator.Business\CharCreator.Business.csproj">
+      <Project>{7D3E1D0A-AADF-4FD0-B13B-5037FC225509}</Project>
+      <Name>CharCreator.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CharCreator.Data\CharCreator.Data.csproj">
       <Project>{0ce997ca-8326-450a-b52d-ef36b71c3bdc}</Project>
       <Name>CharCreator.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CharCreator.Domain\CharCreator.Domain.csproj">
-      <Project>{68662312-fd8a-4b1b-a6ef-fe4522fe9231}</Project>
-      <Name>CharCreator.Domain</Name>
+    <ProjectReference Include="..\CharCreator.Model\CharCreator.Model.csproj">
+      <Project>{91D21200-8EF2-4382-B8C4-6539ADEFFD08}</Project>
+      <Name>CharCreator.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

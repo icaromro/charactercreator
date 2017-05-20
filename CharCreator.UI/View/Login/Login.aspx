@@ -1,6 +1,10 @@
-﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CharCreator.UI.View.Login.Login" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CharCreator.UI.View.Login.Login" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Login</title>
     <style type="text/css" media="screen">
         .jumbotronMod {
             padding-right: 60px;
@@ -9,6 +13,9 @@
             background: lightgrey;                        
         }    
     </style>
+</head>
+<body>
+<form id="form1" runat="server">
     <br/>
     <div class="jumbotronMod" align="center" >        
         <h2><%: Title %></h2>        
@@ -21,4 +28,7 @@
         <asp:Button runat="server" CssClass="btn-lg" BackColor="LightGreen" ID="btnLogin" Text="Entrar" OnClick="btnLogin_OnClick"/>  
         <br/>
     </div>
-</asp:Content>
+</form>
+</body>
+</html>
+

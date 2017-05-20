@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using CharCreator.Domain.Interface.Repository;
+﻿using System.Collections;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;

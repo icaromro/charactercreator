@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CharCreator.UI {
+namespace CharCreator.UI.View.Character {
     
     
-    public partial class About {
+    public partial class CharacterList {
         
         /// <summary>
-        /// lblTeste control.
+        /// gvCharacters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeste;
+        protected global::System.Web.UI.WebControls.GridView gvCharacters;
     }
 }

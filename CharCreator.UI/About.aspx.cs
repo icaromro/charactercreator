@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using CharCreator.Model.Entity;
 
 namespace CharCreator.UI
 {
@@ -11,7 +9,8 @@ namespace CharCreator.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            User usuarioLogado = (User)(HttpContext.Current.Session["User"]);
+            lblTeste.Text = usuarioLogado.name + "\n " + usuarioLogado.birthDate + "\n ";
         }
     }
 }

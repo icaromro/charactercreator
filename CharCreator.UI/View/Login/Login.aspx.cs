@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-
-using System.Configuration;
+using System.Web;
 using CharCreator.Data.Repository;
-using CharCreator.Domain.Entity;
-using CharCreator.Domain.Service;
+using CharCreator.Business.Service;
+using CharCreator.Model.Entity;
 
 namespace CharCreator.UI.View.Login
 {
@@ -18,21 +15,24 @@ namespace CharCreator.UI.View.Login
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
-            
-            BaseRepository<User> repo
-                 = new BaseRepository<User>();
+            UserService userService = new UserService();            
             
             User user = new User();
             user.login = txbLogin.Text;
             user.password = txbPassword.Text;
-            UserService uR = new UserService();
-            UserRepository uR = new UserRepository();
-            if(uR.LogIn(user))                
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Connection Open !')", true);
-            else                
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Can not open connection ! ')", true);
-                
-            
+
+            if (userService.LogIn(ref user))
+            {
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Login OKAY !')", true);
+                HttpContext.Current.Session["User"] = user;
+                Response.Redirect("~/View/Character/CharacterList.aspx");
+            }
+            else
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Erro no login! ')",
+                    true);
+
+
         }
     }
 }
