@@ -1,6 +1,7 @@
 ﻿using CharCreator.Business.Interface.Service;
 using CharCreator.Model.Entity;
 using System.Collections.Generic;
+using System.Data.Common;
 using CharCreator.Data.Repository;
 
 namespace CharCreator.Business.Service
@@ -14,17 +15,17 @@ namespace CharCreator.Business.Service
             _userRepository = new UserRepository() ;
         }
 
-        public void Add(User obj)
+        public void Add(User obj, DbTransaction transaction = null)
         {
             _userRepository.Add(obj);
         }
 
-        public void Update(User obj)
+        public void Update(User obj, DbTransaction transaction = null)
         {
             _userRepository.Update(obj);
         }
 
-        public void Delete(User obj)
+        public void Delete(User obj, DbTransaction transaction = null)
         {
             _userRepository.Delete(obj);
         }

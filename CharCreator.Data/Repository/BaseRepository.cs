@@ -25,17 +25,18 @@ namespace CharCreator.Data.Repository
             DataBaseConnection.Close();
         }
 
-        public DataTable ObterDataTable(string sql, Hashtable parametros, DbTransaction transaction = null)
+        public DataTable ObterDataTable(string sql, Hashtable parametros = null, DbTransaction transaction = null)
         {
             DataTable dataTableReturn = new DataTable();
 
             OpenConnection();
             SqlCommand command = new SqlCommand(sql, DataBaseConnection);
 
-            foreach (DictionaryEntry entry in parametros)
-            {
-                command.Parameters.AddWithValue(entry.Key.ToString(), entry.Value);
-            }            
+            if(parametros != null)
+                foreach (DictionaryEntry entry in parametros)
+                {
+                    command.Parameters.AddWithValue(entry.Key.ToString(), entry.Value);
+                }            
 
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             CloseConnection();
@@ -52,15 +53,16 @@ namespace CharCreator.Data.Repository
             return dataTableReturn;
         }
 
-        public bool ExecuteQuery(string sql, Hashtable parametros, DbTransaction transaction = null)
+        public bool ExecuteQuery(string sql, Hashtable parametros = null, DbTransaction transaction = null)
         {
             OpenConnection();
 
             SqlCommand command = new SqlCommand(sql, DataBaseConnection);
-            foreach (DictionaryEntry entry in parametros)
-            {
-                command.Parameters.AddWithValue(entry.Key.ToString(), entry.Value);
-            }
+            if (parametros != null)
+                foreach (DictionaryEntry entry in parametros)
+                {
+                    command.Parameters.AddWithValue(entry.Key.ToString(), entry.Value);
+                }
             //command.Parameters.AddWithValue("@tPatSName", "Your-Parm-Value");
             SqlDataAdapter sda = new SqlDataAdapter(command);
             //SqlDataReader reader = command.ExecuteReader();

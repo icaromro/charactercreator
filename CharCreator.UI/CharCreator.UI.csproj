@@ -172,7 +172,9 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="View\Account\Details.aspx" />
     <Content Include="View\Character\CharacterList.aspx" />
+    <Content Include="View\Character\Sheet.aspx" />
     <Content Include="View\Login\Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -227,12 +229,26 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="View\Account\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Account\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\Character\CharacterList.aspx.cs">
       <DependentUpon>CharacterList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Character\CharacterList.aspx.designer.cs">
       <DependentUpon>CharacterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Character\Sheet.aspx.cs">
+      <DependentUpon>Sheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Character\Sheet.aspx.designer.cs">
+      <DependentUpon>Sheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

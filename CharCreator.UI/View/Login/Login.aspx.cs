@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web;
-using CharCreator.Data.Repository;
 using CharCreator.Business.Service;
 using CharCreator.Model.Entity;
 

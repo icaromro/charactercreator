@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using CharCreator.Model.Entity;
 using CharCreator.Data.Interface.Repository;
 
@@ -9,12 +10,12 @@ namespace CharCreator.Data.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public void Add(User obj)
+        public void Add(User obj, DbTransaction transaction = null)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(User obj)
+        public void Delete(User obj, DbTransaction transaction = null)
         {
             throw new NotImplementedException();
         }
@@ -26,7 +27,20 @@ namespace CharCreator.Data.Repository
 
         public User GetById(long id)
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT * FROM [user] 
+                            WHERE id = @id";
+            Hashtable parametros = new Hashtable();
+            parametros["@id"] = id;            
+
+            DataTable dataTableUser = ObterDataTable(sql, parametros);
+            if (dataTableUser.Rows.Count > 0)
+            {
+                User user = new User();
+                user.LoadUser(dataTableUser);
+                return user;
+            }
+            else
+                return new User();
         }
 
         public bool LogIn(ref User user)
@@ -47,7 +61,7 @@ namespace CharCreator.Data.Repository
                 return false;
         }
 
-        public void Update(User obj)
+        public void Update(User obj, DbTransaction transaction = null)
         {
             throw new NotImplementedException();
         }

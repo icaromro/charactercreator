@@ -17,6 +17,11 @@ namespace CharCreator.Model.Entity
         public void LoadUser(DataTable dataTableUser)
         {
             DataRow dataRowUser = dataTableUser.Rows[0];
+            LoadUser(dataRowUser);
+        }
+
+        public void LoadUser(DataRow dataRowUser)
+        {            
             this.id = Convert.ToInt64(dataRowUser["id"]);
             this.login = dataRowUser["login"].ToString();
             this.name = dataRowUser["name"].ToString();

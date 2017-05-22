@@ -31,12 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Interface\Service\IBaseService.cs" />
+    <Compile Include="Interface\Service\ICharacterService.cs" />
+    <Compile Include="Interface\Service\ISystemService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BaseService.cs" />
+    <Compile Include="Service\CharacterService.cs" />
+    <Compile Include="Service\SystemService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CharCreator.Data\CharCreator.Data.csproj">
       <Project>{0ce997ca-8326-450a-b52d-ef36b71c3bdc}</Project>
@@ -46,6 +49,9 @@
       <Project>{91d21200-8ef2-4382-b8c4-6539adeffd08}</Project>
       <Name>CharCreator.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
