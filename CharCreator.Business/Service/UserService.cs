@@ -17,17 +17,17 @@ namespace CharCreator.Business.Service
 
         public void Add(User obj, DbTransaction transaction = null)
         {
-            _userRepository.Add(obj);
+            _userRepository.Add(obj, transaction);
         }
 
         public void Update(User obj, DbTransaction transaction = null)
         {
-            _userRepository.Update(obj);
+            _userRepository.Update(obj, transaction);
         }
 
         public void Delete(User obj, DbTransaction transaction = null)
         {
-            _userRepository.Delete(obj);
+            _userRepository.Delete(obj, transaction);
         }
 
         public List<User> GetAll()

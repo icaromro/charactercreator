@@ -29,7 +29,6 @@ namespace CharCreator.UI.View.Character
         {
             if (!IsPostBack)
             {
-                LoadSystems();
                 characterId = 0;
                 if (Request.QueryString["id"] != null)
                 {
@@ -50,25 +49,33 @@ namespace CharCreator.UI.View.Character
             if (characterService.VerifyCharacterOwnership(currentUser.id, characterId))
             {
                 Model.Entity.Character character = characterService.GetById(characterId);
-                ddlSystem.SelectedValue = character.system_id.ToString();
+                
+                ddlSystem.SelectedValue = character.system_id.ToString();                
+                btnSelectSystem_OnClick(null, null);
+                ddlSystem.Enabled = btnSelectSystem.Visible = btnDeselectSystem.Visible = false;
 
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('teste " + characterId + "')", true);
+                switch (character.system_id)
+                {
+                    case 1:
+                        Load3detCharacter(characterId);
+                        break;
+                    default:
+                        break;
+                }                                
             }
             else
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "redirect", 
-                    "alert('Usuário selecionado não pertence ao usuário logado.'); " +
+                    "alert('Personagem selecionado não pertence ao usuário logado.'); " +
                     "window.location='" + Request.ApplicationPath + "View/Character/CharacterList.aspx'", true);                
             }                        
         }
 
-        private void LoadSystems()
+        protected void Load3detCharacter(long characterId)
         {
-            SystemService systemService = new SystemService();            
-            ddlSystem.DataSource = systemService.GetAllActiveDataTable();
-            
-            ddlSystem.DataBind();
-            ddlSystem.Items.Insert(0,new ListItem("Selecione", "0", true));
+            Character3detService character3DetService = new Character3detService();
+            Character3det selectedCharacter = character3DetService.GetById(characterId);
+            txbName.Enabled = ddlScale.Enabled = ddlSex.Enabled = false;
         }
 
         protected void btnSelectSystem_OnClick(object sender, EventArgs e)
@@ -80,16 +87,38 @@ namespace CharCreator.UI.View.Character
             else
             {
                 ddlSystem.Enabled = btnSelectSystem.Visible = false;
-                btnDeselectSystem.Visible = true;
+                mvCharacterSheets.Visible = btnDeselectSystem.Visible = true;
+                mvCharacterSheets.ActiveViewIndex = Convert.ToInt32(ddlSystem.SelectedValue);                
                 //select view according to the system selected
             }
         }
 
         protected void btnDeselectSystem_OnClick(object sender, EventArgs e)
         {
-            btnDeselectSystem.Visible = false;
+            mvCharacterSheets.Visible = btnDeselectSystem.Visible = false;
             ddlSystem.Enabled = btnSelectSystem.Visible = true;
-            ddlSystem.SelectedIndex = 0;
+            mvCharacterSheets.ActiveViewIndex = ddlSystem.SelectedIndex = 0;
         }
+
+        
+
+        #region DropDownLists_Init
+
+        protected void ddlScale_OnInit(object sender, EventArgs e)
+        {
+            ScaleService scaleService = new ScaleService();
+            ddlScale.DataSource = scaleService.GetAllDataTable();
+            ddlScale.DataBind();            
+        }
+
+        protected void ddlSystem_OnInit(object sender, EventArgs e)
+        {
+            SystemService systemService = new SystemService();
+            ddlSystem.DataSource = systemService.GetAllActiveDataTable();
+            ddlSystem.DataBind();
+            ddlSystem.Items.Insert(0, new ListItem("Selecione", "0", true));
+        }
+
+        #endregion
     }
 }

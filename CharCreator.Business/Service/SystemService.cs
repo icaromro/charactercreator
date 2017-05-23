@@ -21,17 +21,17 @@ namespace CharCreator.Business.Service
 
         public void Add(Model.Entity.System obj, DbTransaction transaction = null)
         {
-            _systemRepository.Add(obj);
+            _systemRepository.Add(obj, transaction);
         }
 
         public void Update(Model.Entity.System obj, DbTransaction transaction = null)
         {
-            _systemRepository.Update(obj);
+            _systemRepository.Update(obj, transaction);
         }
 
         public void Delete(Model.Entity.System obj, DbTransaction transaction = null)
         {
-            _systemRepository.Delete(obj);
+            _systemRepository.Delete(obj, transaction);
         }
 
         public List<Model.Entity.System> GetAll()

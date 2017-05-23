@@ -31,12 +31,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Interface\Service\IBaseService.cs" />
+    <Compile Include="Interface\Service\ICharacter3detService.cs" />
     <Compile Include="Interface\Service\ICharacterService.cs" />
+    <Compile Include="Interface\Service\IScaleService.cs" />
     <Compile Include="Interface\Service\ISystemService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BaseService.cs" />
+    <Compile Include="Service\Character3detService.cs" />
     <Compile Include="Service\CharacterService.cs" />
+    <Compile Include="Service\ScaleService.cs" />
     <Compile Include="Service\SystemService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>

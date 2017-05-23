@@ -18,17 +18,17 @@ namespace CharCreator.Business.Service
 
         public void Add(Character obj, DbTransaction transaction = null)
         {
-            _characterRepository.Add(obj);
+            _characterRepository.Add(obj, transaction);
         }
 
         public void Update(Character obj, DbTransaction transaction = null)
         {
-            _characterRepository.Update(obj);
+            _characterRepository.Update(obj, transaction);
         }
 
         public void Delete(Character obj, DbTransaction transaction = null)
         {
-            _characterRepository.Delete(obj);
+            _characterRepository.Delete(obj, transaction);
         }
 
         public List<Character> GetAll()
