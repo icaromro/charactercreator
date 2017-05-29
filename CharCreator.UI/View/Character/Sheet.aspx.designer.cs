@@ -103,6 +103,24 @@ namespace CharCreator.UI.View.Character {
         protected global::System.Web.UI.WebControls.DropDownList ddlScale;
         
         /// <summary>
+        /// lblRace control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRace;
+        
+        /// <summary>
+        /// btnRace control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRace;
+        
+        /// <summary>
         /// ddlSex control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,33 @@ namespace CharCreator.UI.View.Character {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSex;
+        
+        /// <summary>
+        /// lblKit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKit;
+        
+        /// <summary>
+        /// btnKit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnKit;
+        
+        /// <summary>
+        /// gvAttributes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAttributes;
         
         /// <summary>
         /// txbCurrentHealth control.

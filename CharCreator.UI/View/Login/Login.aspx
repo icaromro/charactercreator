@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Login</title>
+    <title>Login</title>            
     <style type="text/css" media="screen">
         .jumbotronMod {
             padding-right: 60px;
@@ -12,10 +12,12 @@
             width: 40%;
             background: lightgrey;                        
         }    
-    </style>
+    </style>       
+    
 </head>
 <body>
 <form id="form1" runat="server">
+    
     <br/>
     <div class="jumbotronMod" align="center" >        
         <h2><%: Title %></h2>        

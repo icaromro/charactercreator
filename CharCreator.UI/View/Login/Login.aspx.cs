@@ -14,8 +14,8 @@ namespace CharCreator.UI.View.Login
 
         protected void btnLogin_OnClick(object sender, EventArgs e)
         {
-            UserService userService = new UserService();            
-            
+            UserService userService = new UserService();
+
             User user = new User();
             user.login = txbLogin.Text;
             user.password = txbPassword.Text;
@@ -28,10 +28,11 @@ namespace CharCreator.UI.View.Login
                 Response.Redirect("~/View/Character/CharacterList.aspx");
             }
             else
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Erro no login! ')",
-                    true);
-
-
+            {              
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Erro no login');",
+                  true);
+                
+            }
         }
     }
 }
